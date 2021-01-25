@@ -8,6 +8,7 @@
         <!-- datatablesのための追加 開始 -->
         <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/>
 　　　　　<script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 　　　　　<!-- datatablesのための追加 終了 -->
     </head>
     <body>
@@ -21,6 +22,18 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'finchart:index' %}">Home</a>
                     </li>
+                    <!-- ========追加sta======== -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"href="#"id="navbarDropdownMenuKink"role="button"data-toggle="dropdown"ana-haspopup="true"aria-expanded="false">
+                            Company
+                        </a>
+                        <div class="dropdown-menu"aria-labelledby="navbarDropdownMenuLink">
+                            {% for item in company_list %}
+                            <a class="dropdown-item" href="{% url 'finchart:company' item.id %}">{{ item.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                    <!-- ========追加end======== -->
                 </ul>
             </div>
         </nav>
