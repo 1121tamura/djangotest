@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'finchart'  # 追加
-    'django.contrib.humanize',  # 追加
+    'finchart' #追加
 ]
 
 MIDDLEWARE = [
@@ -64,7 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'finchart.context_processors.company_list',  # 追加
+                'finchart.context_processors.company_list',
             ],
         },
     },
@@ -122,6 +121,3 @@ USE_TZ = True
 
 STATIC_ROOT = (BASE_DIR,'static') # 追加
 STATIC_URL = '/static/'
-
-# 3桁ごとにカンマを入れる
-NUMBER_GROUPING = 3
