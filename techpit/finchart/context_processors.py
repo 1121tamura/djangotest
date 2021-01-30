@@ -1,5 +1,6 @@
 from .models import Company
 
+
 def company_list(request):
     company_list = Company.objects.all()
 

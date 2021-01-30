@@ -1,21 +1,20 @@
+{% load static %}
 <!doctype html>
-<html>
+    <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>djangoテスト</title>
-        <!-- datatablesのための追加 開始 -->
-        <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/>
-　　　　　<script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
-　　　　　<!-- datatablesのための追加 終了 -->
-        <!-- Chart.jsのための追加 開始 -->
+        <title>Finchart</title>
+         <!-- ========custom.cssのリンクを追加======== -->
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-        <!-- Chart.jsのための追加 終了 -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/>
+        <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="">djangoテスト</a>
+            <a class="navbar-brand" href="">FinChart</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,16 +23,20 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'finchart:index' %}">Home</a>
                     </li>
+
+                    <!-- ========ここから追加======== -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Company
                         </a>
-                        <div class="dropdown-menu"aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             {% for item in company_list %}
                             <a class="dropdown-item" href="{% url 'finchart:company' item.id %}">{{ item.name }}</a>
                             {% endfor %}
                         </div>
                     </li>
+                    <!-- ========ここまで追加======== -->
+
                 </ul>
             </div>
         </nav>
@@ -47,4 +50,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
+    {% block foot %}
+    {% endblock %}
 </html>

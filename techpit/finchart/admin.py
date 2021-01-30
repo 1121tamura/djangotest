@@ -1,12 +1,14 @@
 from django.contrib import admin
 
 # 追加
-from.models import Company,Fstatement
+from .models import Company, Fstatement
+
 
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
     list_display = ('name',)
     list_display_links = ('name',)
+
 
 @admin.register(Fstatement)
 class FstatementAdmin(admin.ModelAdmin):
